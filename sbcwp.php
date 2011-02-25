@@ -1,16 +1,17 @@
 <?php
 /*
 Plugin Name: SBC Wordpress
-Description: Wordpress frontend to SBC demo
+Description: Wordpress frontend to SBC
 Version: 0.1
-Author: Chris Koepke
-Author URI: http://antennahouse.com
+Author: Chris Koepke, Ben Mendis
+Author URI: http://rainbowpdf.com
 License: GPL3
 */
 
 function sbcwp_form()
 {
-	$sbcwp_form = '<div class="wrap">  
+	$sbcwp_form = '<script type="text/javascript" src="/wp-content/plugins/sbcwp/sbcwp.js"></script>
+<div class="wrap">  
 
 	<form name="sbcwp_form">
 
