@@ -12,9 +12,6 @@ function sbcwp_form()
 {
 	$sbcwp_form = '<div class="wrap">  
 
-	<img src="/SBC Logo.gif">
-   <h1>Document Upload</h1>
-
 	<form name="sbcwp_form">
 
 		<p>File name: <input name="file_1" type="file" size="50"></p> 
