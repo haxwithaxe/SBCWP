@@ -102,7 +102,7 @@ function sbcwp_form()
 
 }
 
-add_action('init','sbcwp_form');
+add_action('the_content','sbcwp_form');
 
 function sbcwp_options()
 {
