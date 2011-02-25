@@ -82,13 +82,13 @@ function sbcwp_form()
 
 		<p class="submit">
   
-			<input type="button" name="Convert" onclick="sbcwp_form_submit()"/>
+			<input type="button" name="submit" value="Convert" onclick="sbcwp_form_submit()"/>
 
 		</p>
 
 	</form>
 
-</div> ';
+</div>';
 
 	if ( $_REQUEST['sbcwp'] == 'form' )
 	{
