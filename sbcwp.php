@@ -10,10 +10,11 @@ License: GPL3
 
 function sbcwp_form()
 {
-	$sbcwp_form = '<script type="text/javascript" src="/wp-content/plugins/sbcwp/sbcwp.js"></script>
+	$sbcwp_form = '<script type="text/javascript" src="/wp/wp-content/plugins/SBCWP/jquery.js"></script>
+<script type="text/javascript" src="/wp/wp-content/plugins/SBCWP/sbcwp.js"></script>
 <div class="wrap">  
 
-	<form name="sbcwp_form">
+	<form id="sbcwp_form">
 
 		<p>File name: <input name="file_1" type="file" size="50"></p> 
 		<p><input type="checkbox" name="omitBP" value="on" checked> Omit Blank Pages</p> 
@@ -85,6 +86,10 @@ function sbcwp_form()
 		</p>
 
 	</form>
+
+	<div id="debug">
+		&nbsp;
+	</div>
 
 </div>';
 
