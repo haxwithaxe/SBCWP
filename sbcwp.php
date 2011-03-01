@@ -8,7 +8,7 @@ Author URI: http://rainbowpdf.com
 License: GPL3
 */
 
-function sbcwp_form()
+function sbcwp_form($content)
 {
 	$sbcwp_form = '<script type="text/javascript" src="/wp/wp-content/plugins/SBCWP/jquery.js"></script>
 <script type="text/javascript" src="/wp/wp-content/plugins/SBCWP/sbcwp.js"></script>

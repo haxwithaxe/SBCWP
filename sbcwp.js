@@ -2,7 +2,7 @@
 
 // find the form elements and submit them to the post relay
 function sbcwp_form_submit(){
-url = '/wp/postrelay.php?'
+url = '/wp/wp-content/plugins/SBCWP/postrelay.php?'
 
 file_1 = $('input[name="file_1"]').val()
 omitBP = $('input[name="omitBP"]:checked').val()
