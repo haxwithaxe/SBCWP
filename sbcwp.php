@@ -120,6 +120,7 @@ function sbcwp_form($content)
 		</select></p> 
 		<p><input type="checkbox" name="rasmono" value="on"> Monochrome</p>
 		<br>
+		<input type="submit" name="submit" value="Submit">
 </form>
 </div>';
 
