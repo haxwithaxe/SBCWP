@@ -58,7 +58,7 @@ function sbcwp_form($content)
 <script type="text/javascript" src="/wp/wp-content/plugins/SBCWP/sbcwp.js"></script>
 <div class="wrap">  
 <form enctype="multipart/form-data" method="post" action="'.str_replace( '%7E', '~', $_SERVER['REQUEST_URI']).'">  
-	<input type="hidden" name="sbcwp_form_submitted" value="Y">
+	<input type="hidden" name="sbcwp_form_submitted" value="true">
 	<p>File name: <input name="file_1" type="file" size="50"></p> 
 		<p><input type="checkbox" name="omitBP" value="on" checked> Omit Blank Pages</p> 
 		<p><b>Output Format:</b></p> 
