@@ -38,9 +38,11 @@ function sbcwp_repost()
 	}
 	$ch = curl_init($url);
 	curl_setopt ($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt ($ch, CURLOPT_POSTFIELDS, $repost);
-	curl_exec ($ch);
+	$ret = curl_exec ($ch);
 	curl_close ($ch);
+	return $ret;
 }
 
 function sbcwp_result($content)
