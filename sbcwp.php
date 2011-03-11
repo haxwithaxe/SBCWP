@@ -11,7 +11,7 @@ License: GPL3
 if ( $_REQUEST['sbcwp_form_submitted'] == 'true' )
 {
 
-	add_action('the_content','sbcwp_result');
+	add_filter('the_content','sbcwp_result');
 
 }
 else
@@ -25,22 +25,21 @@ function sbcwp_repost()
 {
 
 	$url = 'http://rainbowpdf.no-ip.info/cgi-bin/webconverter-urlonly.py';
-	$repost = "";
-	while (list($name, $value) = each($_REQUEST)) {
-		if ($name == 'file_1'){
-			$target_path = $target_path . basename( $_FILES['file_1']['name']); 
-			if(move_uploaded_file($_FILES['file_1']['tmp_name'], $target_path)) {
-				$repost[$name] = '@'.$targetpath;
-			}
-		} else {
-			$repost[$name] = $value;
-		}
-	}
+	//$url = $_SERVER['SERVER_NAME'].'/wp/wp-content/plugins/SBCWP/debug.php';
+	$target_path = '/tmp/'.basename( $_FILES['file_1']['name']);
+	if(move_uploaded_file($_FILES['file_1']['tmp_name'], $target_path)) {
+		$_REQUEST['file_1'] = '@'.$targetpath;
+       	}
 	$ch = curl_init($url);
 	curl_setopt ($ch, CURLOPT_POST, 1);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt ($ch, CURLOPT_POSTFIELDS, $repost);
+	curl_setopt ($ch, CURLOPT_POSTFIELDS, $_REQUEST);
+	curl_setopt ($ch, CURLINFO_HEADER_OUT, True);
 	$ret = curl_exec ($ch);
+	while ( ( curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200 ) && !curl_errno($ch) )
+	{
+		sleep(1);
+	};
 	curl_close ($ch);
 	return $ret;
 }
@@ -56,10 +55,11 @@ function sbcwp_result($content)
 
 function sbcwp_form($content)
 {
+   $SCRIPT_PATH = $_SERVER['SERVER_NAME'].'/wp/wp-content/plugins/SBCWP/sbcwpform.php'; //fixme
 	$sbcwp_form = '<script type="text/javascript" src="/wp/wp-content/plugins/SBCWP/jquery.js"></script>
 <script type="text/javascript" src="/wp/wp-content/plugins/SBCWP/sbcwp.js"></script>
 <div class="wrap">  
-<form enctype="multipart/form-data" method="post" action="'.str_replace( '%7E', '~', $_SERVER['REQUEST_URI']).'">  
+<form method="post" enctype="multipart/form-data" action="'.$SCRIPT_PATH.'">  
 	<input type="hidden" name="sbcwp_form_submitted" value="true">
 	<p>File name: <input name="file_1" type="file" size="50"></p> 
 		<p><input type="checkbox" name="omitBP" value="on" checked> Omit Blank Pages</p> 
@@ -123,6 +123,7 @@ function sbcwp_form($content)
 		<p><input type="checkbox" name="rasmono" value="on"> Monochrome</p>
 		<br>
 		<input type="submit" name="submit" value="Submit">
+		<iframe id="sbcwp_upload_target" name="sbcwp_upload_target" src="" style="width:0px;height:0px;border:0px;"></iframe>
 </form>
 </div>';
 
