@@ -8,7 +8,7 @@ Author URI: http://rainbowpdf.com
 License: GPL3
 */
 
-if ( $_REQUEST['sbcwp_form_submitted'] == 'true' )
+/*if ( $_REQUEST['sbcwp_form_submitted'] == 'true' )
 {
 
 	add_filter('the_content','sbcwp_result');
@@ -16,12 +16,12 @@ if ( $_REQUEST['sbcwp_form_submitted'] == 'true' )
 }
 else
 {
-
+*/
 	add_action('the_content','sbcwp_form');
 
-}
+//}
 
-function sbcwp_repost()
+/*function sbcwp_repost()
 {
 
 	$url = 'http://rainbowpdf.no-ip.info/cgi-bin/webconverter-urlonly.py';
@@ -42,7 +42,7 @@ function sbcwp_repost()
 	};
 	curl_close ($ch);
 	return $ret;
-}
+}*/
 
 function sbcwp_result($content)
 {
