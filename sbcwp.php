@@ -56,7 +56,7 @@ function sbcwp_result($content)
 function sbcwp_form($content)
 {
    $SCRIPT_PATH = $_SERVER['SERVER_NAME'].'/wp/wp-content/plugins/SBCWP/sbcwpform.php'; //fixme
-	$sbcwp_form = '<script type="text/javascript" src="wp-content/plugins/SBCWP/sbcwp.js"></script>
+	$sbcwp_form = '<script type="text/javascript" src="/wp/wp-content/plugins/SBCWP/sbcwp.js"></script>
 <div class="wrap">  
 <form method="post" enctype="multipart/form-data" action="'.$SCRIPT_PATH.'" target="sbcwp_upload_target" onsubmit="sbcwp_submit()">  
 	<input type="hidden" name="sbcwp_form_submitted" value="true">
