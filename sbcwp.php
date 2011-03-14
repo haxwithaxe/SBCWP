@@ -128,8 +128,8 @@ function sbcwp_options()
 <div class="wrap">
 	<h2>SBCWP</h2>
 	<form method="post" action="options.php">
-		<?php echo settings_fields( 'sbcwp-settings-group' );
-		echo do_settings( 'sbcwp-settings-group' ); ?>
+		<?php settings_fields( 'sbcwp-settings-group' ); ?>
+		<?php do_settings( 'sbcwp-settings-group' ); ?>
 		<table class="form-table">
 			<tr valign="top">
 				<th scope="row">
