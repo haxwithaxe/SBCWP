@@ -8,13 +8,7 @@ Author URI: http://rainbowpdf.com
 License: GPL3
 */
 
-if($_REQUEST['sbcwp_form_submitted'] == 'true')
-{
-
-	sbcwp_save_settings($_REQUEST);
-
-}
-else if ( is_admin() )
+if( is_admin() )
 {
 
 	add_action( 'admin_menu', 'sbcwp_create_menu' );
@@ -141,15 +135,16 @@ function register_sbcwp_settings()
 
 }
 
-function sbcwp_save_settings($p)
-{
-
-	update_option('sbcwp_server_url',$p['sbcwp_server_url']);
-
-}
-
 function sbcwp_options()
 {
+
+	if($_REQUEST['sbcwp_form_submitted'] == 'true')
+	{
+
+		update_option('sbcwp_server_url',$p['sbcwp_server_url']);
+
+	}
+
 ?>
 <div class="wrap">
 	<h2>SBCWP</h2>
@@ -166,7 +161,7 @@ function sbcwp_options()
 			</tr>
 		</table>
 		<p class="submit">
-			<input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
+			<input type="submit" name="Submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
 		</p>
 	</form>
 </div>
