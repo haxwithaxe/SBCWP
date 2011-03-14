@@ -29,8 +29,8 @@ else
 
 function sbcwp_form($content)
 {
-   $SCRIPT_PATH = plugins_url('/sbcwpform.php', __FILE__);
-	$sbcwp_form = '<script type="text/javascript" src="/wp/wp-content/plugins/SBCWP/sbcwp.js"></script>
+	$SCRIPT_PATH = plugins_url('/sbcwpform.php', __FILE__);
+	$sbcwp_form = '<script type="text/javascript" src="'.plugins_url('/sbcwp.js', __FILE__).'"></script>
 <div class="wrap">  
 	<form method="post" enctype="multipart/form-data" action="'.$SCRIPT_PATH.'" target="sbcwp_upload_target" onsubmit="sbcwp_submit()">  
 		<input type="hidden" name="sbcwp_form_submitted" value="true">
@@ -153,7 +153,7 @@ function sbcwp_options()
 ?>
 <div class="wrap">
 	<h2>SBCWP</h2>
-	<form method="post" action="options.php">
+	<form method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
 		<?php ?>
 		<table class="form-table">
 			<tr valign="top">
