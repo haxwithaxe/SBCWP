@@ -142,6 +142,14 @@ function sbcwp_options()
 
 		update_option('sbcwp_server_url',$p['sbcwp_server_url']);
 
+		$optval = $p['sbcwp_server_url'];
+
+	}
+	else
+	{
+
+		$optval = get_option('sbcwp_server_url');
+
 	}
 
 ?>
@@ -155,7 +163,7 @@ function sbcwp_options()
 					SBC CGI URL
 				</th>
 				<td>
-					<input type="text" name="sbcwp_server_url" value="<?php echo get_option('sbcwp_server_url') ?>" />
+					<input type="text" name="sbcwp_server_url" value="<?php echo $optval ?>" />
 				</td>
 			</tr>
 		</table>
