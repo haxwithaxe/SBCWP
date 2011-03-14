@@ -27,7 +27,6 @@ function sbcwp_form($content)
 	$sbcwp_form = '<script type="text/javascript" src="'.plugins_url('/sbcwp.js', __FILE__).'"></script>
 <div class="wrap">  
 	<form method="post" enctype="multipart/form-data" action="'.$SCRIPT_PATH.'" target="sbcwp_upload_target" onsubmit="sbcwp_submit()">  
-		<input type="hidden" name="sbcwp_form_submitted" value="true">
 		<p>File name: <input name="file_1" type="file" size="50"></p>
 		<p><input type="checkbox" name="omitBP" value="on" checked> Omit Blank Pages</p> 
 		<p><b>Output Format:</b></p> 
@@ -149,7 +148,7 @@ function sbcwp_options()
 <div class="wrap">
 	<h2>SBCWP</h2>
 	<form method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
-		<?php ?>
+		<input type="hidden" name="sbcwp_form_submitted" value="true">
 		<table class="form-table">
 			<tr valign="top">
 				<th scope="row">
