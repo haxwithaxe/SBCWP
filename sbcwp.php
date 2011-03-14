@@ -137,8 +137,8 @@ function register_sbcwp_settings()
 
 function sbcwp_options()
 {
-
-	$options_page = '<div class="wrap">
+?>
+<div class="wrap">
 	<h2>SBCWP</h2>
 	<form method="post" action="options.php">
 		<table class="form-table">
@@ -147,18 +147,17 @@ function sbcwp_options()
 					SBC CGI URL
 				</th>
 				<td>
-					<input type="text" name="sbcwp_server_url" value="'.get_option('sbcwp_server_url').'" />
+					<input type="text" name="sbcwp_server_url" value="<?php get_option('sbcwp_server_url') ?>" />
 				</td>
 			</tr>
 		</table>
 		<p class="submit">
-			<input type="submit" class="button-primary" value="'._e('Save Changes').'" />
+			<input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
 		</p>
 	</form>
-</div>';
+</div>
 
-	return $options_page;
-
+<?php
 }
 
 ?>
