@@ -162,7 +162,7 @@ function sbcwp_options()
 					SBC CGI URL
 				</th>
 				<td>
-					<input type="text" size="50" name="sbcwp_server_url" value="<?php echo $optval ?>" />
+					<input type="text" size="100" name="sbcwp_server_url" value="<?php echo $optval ?>" />
 				</td>
 			</tr>
 		</table>

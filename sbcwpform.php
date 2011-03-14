@@ -1,6 +1,6 @@
 <?php
 header("Content-type: text/html");
-require_once('./wp-load.php');
+require_once('../../../wp-load.php');
 //$url = 'http://rainbowpdf.no-ip.info/cgi-bin/webconverter-urlonly.py';
 $url = get_option('sbcwp_server_url');
 $MAX_WAIT = 120;
