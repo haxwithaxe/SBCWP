@@ -7,6 +7,7 @@ Author: Chris Koepke, Ben Mendis
 Author URI: http://rainbowpdf.com
 License: GPL3
 */
+
 if( is_admin() )
 {
 
@@ -20,7 +21,7 @@ else
 
 }
 
-function sbcwp_form($content)
+function sbcwp_form( $content )
 {
 	preg_match( '/win.*/i', PHP_OS ) ? $slash = "\\" : $slash = "/";
 	$SCRIPT_PATH = plugins_url('/sbcwpform.php', __FILE__);
@@ -37,10 +38,10 @@ function sbcwp_form($content)
 	</form>
 </div>';
 
-	if ( stristr($content, '%sbcwp_form%') )
+	if ( stristr( $content, '%sbcwp_form%' ) )
 	{
 
-		return str_replace('%sbcwp_form%', $sbcwp_form, $content);
+		return str_replace( '%sbcwp_form%', $sbcwp_form, $content );
 
 	}
 	else
@@ -73,10 +74,10 @@ function register_sbcwp_settings()
 function sbcwp_options()
 {
 
-	if($_REQUEST['sbcwp_form_submitted'] == 'true')
+	if( $_REQUEST['sbcwp_form_submitted'] == 'true' )
 	{
 
-		update_option('sbcwp_server_url',$_REQUEST['sbcwp_server_url']);
+		update_option( 'sbcwp_server_url', $_REQUEST['sbcwp_server_url'] );
 
 		$optval = $_REQUEST['sbcwp_server_url'];
 
@@ -84,14 +85,14 @@ function sbcwp_options()
 	else
 	{
 
-		$optval = get_option('sbcwp_server_url');
+		$optval = get_option( 'sbcwp_server_url' );
 
 	}
 
 ?>
 <div class="wrap">
 	<h2>SBCWP</h2>
-	<form method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
+	<form method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI'] ); ?>">
 		<input type="hidden" name="sbcwp_form_submitted" value="true">
 		<table class="form-table">
 			<tr valign="top">
@@ -104,7 +105,7 @@ function sbcwp_options()
 			</tr>
 		</table>
 		<p class="submit">
-			<input type="submit" name="Submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
+			<input type="submit" name="Submit" class="button-primary" value="<?php _e( 'Save Changes' ) ?>" />
 		</p>
 	</form>
 </div>
