@@ -8,18 +8,18 @@ Author URI: http://rainbowpdf.com
 License: GPL3
 */
 
-/*if ( !is_admin() )
-{*/
-
-	add_action( 'the_content', 'sbcwp_form' );
-
-/*}
-else
+if ( is_admin() )
 {
 
 	add_action( 'admin_menu', 'sbcwp_create_menu' );
 
-}*/
+}
+else
+{
+
+	add_action( 'the_content', 'sbcwp_form' );
+
+}
 
 function sbcwp_form($content)
 {
@@ -138,11 +138,10 @@ function register_sbcwp_settings()
 function sbcwp_options()
 {
 
-$options_page = '<div class="wrap">
+	$options_page = '<div class="wrap">
 	<h2>SBCWP</h2>
 	<form method="post" action="options.php">
-		'.settings_fields( 'sbcwp-settings-group' ).
-		do_settings( 'sbcwp-settings-group' ).'
+		'.settings_fields( 'sbcwp-settings-group' ).do_settings( 'sbcwp-settings-group' ).'
 		<table class="form-table">
 			<tr valign="top">
 				<th scope="row">
@@ -159,7 +158,7 @@ $options_page = '<div class="wrap">
 	</form>
 </div>';
 
-return $options_page;
+	return $options_page;
 
 }
 
