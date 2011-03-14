@@ -154,13 +154,14 @@ function sbcwp_options()
 <div class="wrap">
 	<h2>SBCWP</h2>
 	<form method="post" action="options.php">
+		<?php ?>
 		<table class="form-table">
 			<tr valign="top">
 				<th scope="row">
 					SBC CGI URL
 				</th>
 				<td>
-					<input type="text" name="sbcwp_server_url" value="<?php get_option('sbcwp_server_url') ?>" />
+					<input type="text" name="sbcwp_server_url" value="<?php echo get_option('sbcwp_server_url') ?>" />
 				</td>
 			</tr>
 		</table>
