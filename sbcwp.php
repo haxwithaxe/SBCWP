@@ -23,7 +23,7 @@ else
 function sbcwp_form($content)
 {
 	$SCRIPT_PATH = plugins_url('/sbcwpform.php', __FILE__);
-	$sbcwp_form_bits = file_get_contents('./sbcwpform.html');
+	$sbcwp_form_bits = file_get_contents(plugins_basename(__FILE__).'sbcwpform.html');
 	print $sbcwp_form_bits;
 	$sbcwp_form = '<script type="text/javascript" src="'.plugins_url('/sbcwp.js', __FILE__).'"></script>
 <div class="wrap">  
