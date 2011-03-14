@@ -1,7 +1,8 @@
 <?php
 header("Content-type: text/html");
-$url = 'http://rainbowpdf.no-ip.info/cgi-bin/webconverter-urlonly.py';
-//$url = $_SERVER['SERVER_NAME'].'/wp/wp-content/plugins/SBCWP/debug.php';
+require_once('./wp-load.php');
+//$url = 'http://rainbowpdf.no-ip.info/cgi-bin/webconverter-urlonly.py';
+$url = get_option('sbcwp_server_url');
 $MAX_WAIT = 120;
 $target_path = '/tmp/'.basename( $_FILES['file_1']['name']);
 if(move_uploaded_file($_FILES['file_1']['tmp_name'], $target_path)) {
