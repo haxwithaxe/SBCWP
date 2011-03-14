@@ -8,9 +8,18 @@ Author URI: http://rainbowpdf.com
 License: GPL3
 */
 
-add_action( 'the_content', 'sbcwp_form' );
+if ( !is_admin() )
+{
 
-add_action( 'admin_menu', 'sbcwp_create_menu' );
+	add_action( 'the_content', 'sbcwp_form' );
+
+}
+else
+{
+
+	add_action( 'admin_menu', 'sbcwp_create_menu' );
+
+}
 
 function sbcwp_form($content)
 {
