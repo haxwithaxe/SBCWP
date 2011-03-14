@@ -23,7 +23,7 @@ else
 
 function sbcwp_form($content)
 {
-   $SCRIPT_PATH = plugin_url('/sbcwpform.php', __FILE__);
+   $SCRIPT_PATH = plugins_url('/sbcwpform.php', __FILE__);
 	$sbcwp_form = '<script type="text/javascript" src="/wp/wp-content/plugins/SBCWP/sbcwp.js"></script>
 <div class="wrap">  
 	<form method="post" enctype="multipart/form-data" action="'.$SCRIPT_PATH.'" target="sbcwp_upload_target" onsubmit="sbcwp_submit()">  
