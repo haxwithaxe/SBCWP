@@ -136,7 +136,7 @@ function sbcwp_options()
 					SBC CGI URL
 				</th>
 				<td>
-					<input type="text" name="sbcwp_server_url" value="<?php get_option('sbcwp_server_url') ?>" />
+					<input type="text" name="sbcwp_server_url" value="<?php echo get_option('sbcwp_server_url') ?>" />
 				</td>
 			</tr>
 		</table>
