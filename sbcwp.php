@@ -136,14 +136,17 @@ function sbcwp_options()
 					SBC CGI URL
 				</th>
 				<td>
-					<input type="text" name="sbcwp_server_url" value="<?php echo get_option('sbcwp_server_url') ?>" />
+					<input type="text" name="sbcwp_server_url" value="<?php get_option('sbcwp_server_url') ?>" />
 				</td>
 			</tr>
 		</table>
 		<p class="submit">
-			<input type="submit" class="button-primary" value="<?php echo _e('Save Changes') ?>" />
+			<input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
 		</p>
 	</form>
 </div>
 
-<?php } ?>
+<?php
+}
+
+?>
