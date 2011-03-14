@@ -8,12 +8,13 @@ Author URI: http://rainbowpdf.com
 License: GPL3
 */
 
-if($_REQUEST['sbcwp_form_submitted'] == 'true'){
+if($_REQUEST['sbcwp_form_submitted'] == 'true')
+{
 
 	sbcwp_save_settings($_REQUEST);
 
 }
-elif ( is_admin() )
+else if ( is_admin() )
 {
 
 	add_action( 'admin_menu', 'sbcwp_create_menu' );
