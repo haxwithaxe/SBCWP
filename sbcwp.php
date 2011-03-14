@@ -8,7 +8,8 @@ Author URI: http://rainbowpdf.com
 License: GPL3
 */
 
-add_action('the_content','sbcwp_form');
+add_action( 'the_content', 'sbcwp_form' );
+add_action( 'admin_menu', 'sbcwp_create_menu' );
 
 function sbcwp_form($content)
 {
@@ -101,13 +102,11 @@ function sbcwp_form($content)
 
 }
 
-add_action( 'admin_menu', 'sbcwp_create_menu' );
-
 function sbcwp_create_menu() 
 {
 
 	//create new top-level menu
-	add_menu_page( 'SBCWP Plugin Settings', 'SBCWP Settings', 'administrator', __FILE__, 'sbcwp_options',plugins_url('/icon.png', __FILE__) );
+	add_menu_page( 'SBCWP Plugin Settings', 'SBCWP Settings', 'administrator', __FILE__, 'sbcwp_options','' );
 
 	//call register settings function
 	add_action( 'admin_init', 'register_sbcwp_settings' );
@@ -125,29 +124,26 @@ function register_sbcwp_settings()
 function sbcwp_options()
 {
 
-	$options_page = '<div class="wrap">
+?>
+<div class="wrap">
 	<h2>SBCWP</h2>
 	<form method="post" action="options.php">
-		'.settings_fields( 'sbcwp-settings-group' ).
-		do_settings( 'sbcwp-settings-group' ).'
+		<?php echo settings_fields( 'sbcwp-settings-group' );
+		echo do_settings( 'sbcwp-settings-group' ); ?>
 		<table class="form-table">
 			<tr valign="top">
 				<th scope="row">
 					SBC CGI URL
 				</th>
 				<td>
-					<input type="text" name="sbcwp_server_url" value="'.get_option('sbcwp_server_url').'" />
+					<input type="text" name="sbcwp_server_url" value="<?php echo get_option('sbcwp_server_url') ?>" />
 				</td>
 			</tr>
 		</table>
 		<p class="submit">
-			<input type="submit" class="button-primary" value="'._e('Save Changes').'" />
+			<input type="submit" class="button-primary" value="<?php echo _e('Save Changes') ?>" />
 		</p>
 	</form>
-</div>';
+</div>
 
-	print $options_page;
-
-}
-
-?>
+<?php } ?>
