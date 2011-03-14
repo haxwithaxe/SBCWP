@@ -141,7 +141,6 @@ function sbcwp_options()
 	$options_page = '<div class="wrap">
 	<h2>SBCWP</h2>
 	<form method="post" action="options.php">
-		'.settings_fields( 'sbcwp-settings-group' ).'
 		<table class="form-table">
 			<tr valign="top">
 				<th scope="row">
