@@ -8,54 +8,11 @@ Author URI: http://rainbowpdf.com
 License: GPL3
 */
 
-/*if ( $_REQUEST['sbcwp_form_submitted'] == 'true' )
-{
-
-	add_filter('the_content','sbcwp_result');
-
-}
-else
-{
-*/
-	add_action('the_content','sbcwp_form');
-
-//}
-
-/*function sbcwp_repost()
-{
-
-	$url = 'http://rainbowpdf.no-ip.info/cgi-bin/webconverter-urlonly.py';
-	//$url = $_SERVER['SERVER_NAME'].'/wp/wp-content/plugins/SBCWP/debug.php';
-	$target_path = '/tmp/'.basename( $_FILES['file_1']['name']);
-	if(move_uploaded_file($_FILES['file_1']['tmp_name'], $target_path)) {
-		$_REQUEST['file_1'] = '@'.$targetpath;
-       	}
-	$ch = curl_init($url);
-	curl_setopt ($ch, CURLOPT_POST, 1);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt ($ch, CURLOPT_POSTFIELDS, $_REQUEST);
-	curl_setopt ($ch, CURLINFO_HEADER_OUT, True);
-	$ret = curl_exec ($ch);
-	while ( ( curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200 ) && !curl_errno($ch) )
-	{
-		sleep(1);
-	};
-	curl_close ($ch);
-	return $ret;
-}*/
-
-function sbcwp_result($content)
-{
-
-	$sbcwp_result = sbcwp_repost();
-
-	return str_replace('%sbcwp_form%', $sbcwp_result, $content);
-
-}
+add_action('the_content','sbcwp_form');
 
 function sbcwp_form($content)
 {
-   $SCRIPT_PATH = '/wp/wp-content/plugins/SBCWP/sbcwpform.php'; //fixme
+   $SCRIPT_PATH = plugin_url('/sbcwpform.php', __FILE__);
 	$sbcwp_form = '<script type="text/javascript" src="/wp/wp-content/plugins/SBCWP/sbcwp.js"></script>
 <div class="wrap">  
 <form method="post" enctype="multipart/form-data" action="'.$SCRIPT_PATH.'" target="sbcwp_upload_target" onsubmit="sbcwp_submit()">  
@@ -144,9 +101,53 @@ function sbcwp_form($content)
 
 }
 
+add_action( 'admin_menu', 'sbcwp_create_menu' );
+
+function sbcwp_create_menu() 
+{
+
+	//create new top-level menu
+	add_menu_page( 'SBCWP Plugin Settings', 'SBCWP Settings', 'administrator', __FILE__, 'sbcwp_options',plugins_url('/icon.png', __FILE__) );
+
+	//call register settings function
+	add_action( 'admin_init', 'register_sbcwp_settings' );
+
+}
+
+
+function register_sbcwp_settings()
+{
+
+	register_setting( 'sbcwp-settings-group', 'sbcwp_server_url' );
+
+}
+
 function sbcwp_options()
 {
 
-};
+	$options_page = '<div class="wrap">
+	<h2>SBCWP</h2>
+	<form method="post" action="options.php">
+		'.settings_fields( 'sbcwp-settings-group' ).
+		do_settings( 'sbcwp-settings-group' ).'
+		<table class="form-table">
+			<tr valign="top">
+				<th scope="row">
+					SBC CGI URL
+				</th>
+				<td>
+					<input type="text" name="sbcwp_server_url" value="'.get_option('sbcwp_server_url').'" />
+				</td>
+			</tr>
+		</table>
+		<p class="submit">
+			<input type="submit" class="button-primary" value="'._e('Save Changes').'" />
+		</p>
+	</form>
+</div>';
+
+	print $options_page;
+
+}
 
 ?>
