@@ -7,7 +7,6 @@ Author: Chris Koepke, Ben Mendis
 Author URI: http://rainbowpdf.com
 License: GPL3
 */
-
 if( is_admin() )
 {
 
@@ -140,9 +139,9 @@ function sbcwp_options()
 	if($_REQUEST['sbcwp_form_submitted'] == 'true')
 	{
 
-		update_option('sbcwp_server_url',$p['sbcwp_server_url']);
+		update_option('sbcwp_server_url',$_REQUEST['sbcwp_server_url']);
 
-		$optval = $p['sbcwp_server_url'];
+		$optval = $_REQUEST['sbcwp_server_url'];
 
 	}
 	else
