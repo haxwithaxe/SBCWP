@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: SBC Wordpress
-Description: Wordpress frontend to SBC
-Version: 0.1
-Author: Chris Koepke, Ben Mendis
+Description: Wordpress frontend to SBC. This plugin will automatically replace "%sbcwp%" in any page with the form to access SBC.
+Version: 1.0
+Author: Chris Koepke
 Author URI: http://rainbowpdf.com
 License: GPL3
 */
