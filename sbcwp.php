@@ -24,6 +24,7 @@ function sbcwp_form($content)
 {
 	$SCRIPT_PATH = plugins_url('/sbcwpform.php', __FILE__);
 	$sbcwp_form_bits = file_get_contents(dirname(__FILE__).'sbcwpform.html');
+	print $sbcwp_form_bits;
 	$sbcwp_form = '<script type="text/javascript" src="'.plugins_url('/sbcwp.js', __FILE__).'"></script>
 <div class="wrap">  
 	<form method="post" enctype="multipart/form-data" action="'.$SCRIPT_PATH.'" target="sbcwp_upload_target" onsubmit="sbcwp_submit()">  
