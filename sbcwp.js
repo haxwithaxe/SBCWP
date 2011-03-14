@@ -1,8 +1,8 @@
-function sbcwp_submit() {
+function sbcwp_submit(waitPath) {
 
 	document.getElementById("sbcwp_upload_target").onload = uploadDone;
 
-	var waitImg = '<img src="/wp/wp-content/plugins/SBCWP/wait.gif" alt="Converting your document ..."/>';
+	var waitImg = '<img src="'+waitPath+'" alt="Converting your document ..."/>';
 
 	document.getElementById('sbcwp_message').innerHTML = waitImg;
 
