@@ -29,7 +29,7 @@ function sbcwp_form( $content )
 	$sbcwp_form_bits = file_get_contents(getcwd().$slash.'wp-content'.$slash.'plugins'.$slash.plugin_basename(dirname(__FILE__)).$slash.'sbcwpform.html');
 	$sbcwp_form = '<script type="text/javascript" src="'.plugins_url('/sbcwp.js', __FILE__).'"></script>
 <div class="wrap">  
-	<form method="post" enctype="multipart/form-data" action="'.$SCRIPT_PATH.'" target="sbcwp_upload_target" onsubmit="sbcwp_submit('.$WAIT_PATH.')">  
+	<form method="post" enctype="multipart/form-data" action="'.$SCRIPT_PATH.'" target="sbcwp_upload_target" onsubmit="sbcwp_submit(\''.$WAIT_PATH.'\')">  
 		'.$sbcwp_form_bits.'
 		<input type="submit" name="submit" value="Submit">
 		<div id="sbcwp_message">
