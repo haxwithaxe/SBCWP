@@ -1,5 +1,12 @@
 <!-- this is an html fragment that will be placed inside a form element which is itself inside a div of class "wrap" -->
+		<table>
+			<tr>
+				<td>
 		File name: <input name="file_1" type="file" size="50"><br/>
+				</td>
+			</tr>
+			<tr>
+				<td>
 		<input type="checkbox" name="omitBP" value="on" checked> Omit Blank Pages<br/> 
 		<b>Output Format:</b><br/> 
 		<input type="radio" name="outputType" value="PDF" checked> PDF<br/> 
@@ -11,7 +18,8 @@
 		<input type="radio" name="outputType" value="Flash"> <font color="red"><b>Flash</b></font><br/> 
 		<input type="radio" name="outputType" value="TIFF"> <font color="red"><b>TIFF</b></font><br/> 
 		<input type="radio" name="outputType" value="MTIFF"> <font color="red"><b>MTIFF</b></font><br/> 
-		<br/> 
+		</td>
+		<td>
 		<b>PDF Options:</b><br/>
 		Version: 
 			<select name="pdfversion"> 
@@ -64,5 +72,7 @@
 			</select>
 		<br/> 
 		<input type="checkbox" name="rasmono" value="on"> Monochrome</p>
-		<br/>
+				</td>
+			</tr>
+		</table>
 <!-- Do not add a submit button here -->
